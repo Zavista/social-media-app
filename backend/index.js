@@ -10,6 +10,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { register } from './controllers/auth.js'
 import authRouter from './routes/auth.js'
+import usersRouter from './routes/users.js'
 
 /* Configurations */
 const __filename = fileURLToPath(import.meta.url);
@@ -44,7 +45,8 @@ const upload = multer({storage})
 app.post("/auth/register", upload.single("picture"), register); //in here instead of authRouter b/c we need the upload const
 
 /* Routes */
-app.use('/auth', authRouter)
+app.use('/auth', authRouter);
+app.use('/users', usersRouter);
 
 
 /* Mongoose Setup */
