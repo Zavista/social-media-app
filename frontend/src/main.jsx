@@ -25,7 +25,7 @@ const persistedReducer = persistReducer(persistConfig, authReducer);
 const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => {
-    getDefaultMiddleware({
+    return getDefaultMiddleware({
       serializableCheck: {
         ignoreActions: 
         [persistStore,
@@ -50,8 +50,6 @@ root.render(
       <PersistGate loading={null} persistor={persistStore(store)}>
         <App />
       </PersistGate>
-      
     </Provider>
-    
   </React.StrictMode>,
 )
