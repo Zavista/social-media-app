@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          Social Media App
+          Fakebook
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
@@ -78,10 +78,11 @@ const Navbar = () => {
               {theme.palette.mode === "dark" ? (
                 <DarkMode sx={{ fontSize: "25px" }}></DarkMode>
               ) : (
-                <LightMode sx={{ color: "dark", fontSize: "25px" }}></LightMode>
+                <LightMode sx={{ color: dark, fontSize: "25px" }}></LightMode>
               )}
             </IconButton>
             <Message sx={{ fontSize: "25px" }}></Message>
+            <Notifications sx={{ fontSize: "25px" }} />
             <Help sx={{ fontSize: "25px" }}></Help>
             <FormControl variant="standard" value={fullName}>
               <Select
@@ -102,6 +103,10 @@ const Navbar = () => {
               >
                 input={<InputBase></InputBase>}
               </Select>
+              <MenuItem value={fullName}>
+                <Typography>{fullName}</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
             </FormControl>
           </FlexBetween>
         ) : (
@@ -143,11 +148,12 @@ const Navbar = () => {
                   <DarkMode sx={{ fontSize: "25px" }}></DarkMode>
                 ) : (
                   <LightMode
-                    sx={{ color: "dark", fontSize: "25px" }}
+                    sx={{ color: dark, fontSize: "25px" }}
                   ></LightMode>
                 )}
               </IconButton>
               <Message sx={{ fontSize: "25px" }}></Message>
+              <Notifications sx={{ fontSize: "25px" }} />
               <Help sx={{ fontSize: "25px" }}></Help>
               <FormControl variant="standard" value={fullName}>
                 <Select
@@ -167,6 +173,10 @@ const Navbar = () => {
                   }}
                 >
                   input={<InputBase></InputBase>}
+                  <MenuItem value={fullName}>
+                    <Typography>{fullName}</Typography>
+                  </MenuItem>
+                  <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
                 </Select>
               </FormControl>
             </FlexBetween>
