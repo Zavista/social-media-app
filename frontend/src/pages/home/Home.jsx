@@ -1,6 +1,11 @@
+import { Box } from "@mui/material"
+import Navbar from "../navbar/Navbar.jsx"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <Box>
+      <Navbar></Navbar>
+    </Box>
   )
 }
 
