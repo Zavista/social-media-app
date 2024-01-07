@@ -42,7 +42,7 @@ export const register = async (req, res) => {
 
 
 /* Logging In */
-export const login = async (res, req) => {
+export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({email: email}); //emails are unique
@@ -55,7 +55,7 @@ export const login = async (res, req) => {
             return res.status(400).json({mesg: "Invalid credentials. "})
         }
 
-        const token = jwt.sign({ id: user._id}, procss.env.JWT_SECRET);
+        const token = jwt.sign({ id: user._id}, process.env.JWT_SECRET);
         delete user.password;
         res.status(200).json({token, user})
   
