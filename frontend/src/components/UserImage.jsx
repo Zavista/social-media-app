@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 
 
-const UserImage = ({ image, size='60px'} => {
+const UserImage = ({ image, size='60px'}) => {
     return (
         <Box width={size} height={size}>
             <img
@@ -13,4 +13,6 @@ const UserImage = ({ image, size='60px'} => {
             </img>
         </Box>
     )
-})
+}
+
+export default UserImage;
