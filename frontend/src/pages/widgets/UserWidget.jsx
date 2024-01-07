@@ -6,7 +6,7 @@ import {
 } from '@mui/icons-material'
 import { Box, Typography, Divider, useTheme} from '@mui/material'
 import UserImage from '../../components/UserImage.jsx'
-import FlexBetweeb from '../../components/FlexBetween.jsx'
+import FlexBetween from '../../components/FlexBetween.jsx'
 import WidgetWrapper from '../../components/WidgetWrapper.jsx'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
@@ -52,7 +52,38 @@ const UserWidget = ({ userId, picturePath}) => {
     } = user;
 
   return (
-    <div>UserWidget</div>
+    <WidgetWrapper>
+        <FlexBetween
+            gap='0.5rem'
+            pb='1.1rem'
+            onClick={() => navigate(`/profile/${userId}`)}
+        >
+            <FlexBetween>
+                <UserImage image={picturePath}></UserImage>
+                <Box>
+                    <Typography
+                        variant='h4'
+                        color={dark}
+                        fontWeight='500'
+                        sx={{
+                            '&:hover': {
+                                color: palette.primary.light,
+                                cursor: 'pointer'
+                            }
+                        }}
+                    >
+                        {firstName} {lastName}
+                    </Typography>
+                    <Typography color={medium}>{friends.length} friends</Typography>
+                </Box>
+                <ManageAccountsOutlined></ManageAccountsOutlined>
+            </FlexBetween>
+
+            <Divider></Divider>
+
+            
+        </FlexBetween>
+    </WidgetWrapper>
   )
 }
 
