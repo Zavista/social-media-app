@@ -47,7 +47,7 @@ const registerSchema = yup.object().shape({
   };
   
   const Form = () => {
-    const [pageType, setPageType] = useState("register");
+    const [pageType, setPageType] = useState("login");
     const { palette } = useTheme();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -256,12 +256,11 @@ const registerSchema = yup.object().shape({
                   color: palette.primary.main,
                   "&:hover": {
                     cursor: "pointer",
-                    color: palette.primary.light,
                   },
                 }}
               >
                 {isLogin
-                  ? "Don't have an account? Sign Up here."
+                  ? "Don't have an account? Sign up here."
                   : "Already have an account? Login here."}
               </Typography>
             </Box>
