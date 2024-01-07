@@ -11,6 +11,7 @@ const App = () => {
 
   const mode = useSelector((state) => (state.mode));
   const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode])
+  const isAuth = true;
 
   return (
     <div className='app'>
@@ -19,8 +20,8 @@ const App = () => {
             <CssBaseline></CssBaseline>
             <Routes>
               <Route path='/' element={<Login></Login>}></Route>
-              <Route path='/home' element={<Home></Home>}></Route>
-              <Route path='/profile/:userId' element={<Profile></Profile>}></Route>
+              <Route path='/home' element={isAuth ? <Home></Home> : <Navigate to='/'></Navigate>}></Route>
+              <Route path='/profile/:userId' element={isAuth ? <Profile></Profile> : <Navigate to='/'></Navigate>}></Route>
             </Routes>
           </ThemeProvider>
       </BrowserRouter>
