@@ -11,8 +11,8 @@ import WidgetWrapper from '../../components/WidgetWrapper.jsx'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Twitter from '../../../public/assets/twitter.png'
-import LinkedIn from '../../../public/assets/linkedin.png'
+import Twitter from '../../assets/twitter.png'
+import LinkedIn from '../../assets/linkedin.png'
 
 
 const UserWidget = ({ userId, picturePath}) => {
@@ -31,7 +31,7 @@ const UserWidget = ({ userId, picturePath}) => {
             headers: { Authorization: `Bearer ${token}`}
 
         })
-        const data = await response.json;
+        const data = await response.json();
         setUser(data);
     }
 
