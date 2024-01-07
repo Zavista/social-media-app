@@ -7,26 +7,31 @@ import { useSelector } from 'react-redux'
 import { CssBaseline, ThemeProvider, createTheme} from '@mui/material'
 import { themeSettings } from './theme.js'
 
-const App = () => {
-
-  const mode = useSelector((state) => (state.mode));
-  const theme = useMemo(()=> createTheme(themeSettings(mode)), [mode])
-  const isAuth = true;
+function App() {
+  const mode = useSelector((state) => state.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const isAuth = Boolean(useSelector((state) => state.token));
 
   return (
-    <div className='app'>
+    <div className="app">
       <BrowserRouter>
-          <ThemeProvider theme={theme}>
-            <CssBaseline></CssBaseline>
-            <Routes>
-              <Route path='/' element={<Login></Login>}></Route>
-              <Route path='/home' element={isAuth ? <Home></Home> : <Navigate to='/'></Navigate>}></Route>
-              <Route path='/profile/:userId' element={isAuth ? <Profile></Profile> : <Navigate to='/'></Navigate>}></Route>
-            </Routes>
-          </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route
+              path="/home"
+              element={isAuth ? <Home /> : <Navigate to="/" />}
+            />
+            <Route
+              path="/profile/:userId"
+              element={isAuth ? <Profile /> : <Navigate to="/" />}
+            />
+          </Routes>
+        </ThemeProvider>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
