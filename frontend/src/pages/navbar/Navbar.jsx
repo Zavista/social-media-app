@@ -143,13 +143,14 @@ const Navbar = () => {
               alignItems="center"
               gap="3rem"
             >
-              <IconButton sx={{ fontSize: "25px" }} onClick={() => dispatch(setMode())}>
+              <IconButton
+                sx={{ fontSize: "25px" }}
+                onClick={() => dispatch(setMode())}
+              >
                 {theme.palette.mode === "dark" ? (
                   <DarkMode sx={{ fontSize: "25px" }}></DarkMode>
                 ) : (
-                  <LightMode
-                    sx={{ color: dark, fontSize: "25px" }}
-                  ></LightMode>
+                  <LightMode sx={{ color: dark, fontSize: "25px" }}></LightMode>
                 )}
               </IconButton>
               <Message sx={{ fontSize: "25px" }}></Message>
@@ -176,7 +177,9 @@ const Navbar = () => {
                   <MenuItem value={fullName}>
                     <Typography>{fullName}</Typography>
                   </MenuItem>
-                  <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
+                  <MenuItem onClick={() => dispatch(setLogout())}>
+                    Log Out
+                  </MenuItem>
                 </Select>
               </FormControl>
             </FlexBetween>
