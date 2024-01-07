@@ -11,11 +11,13 @@ import WidgetWrapper from '../../components/WidgetWrapper.jsx'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Twitter from '../../../public/assets/twitter.png'
+import LinkedIn from '../../../public/assets/linkedin.png'
 
 
 const UserWidget = ({ userId, picturePath}) => {
     const [user, setUser] = useState(null);
-    const palette = useTheme();
+    const { palette } = useTheme();
     const navigate = useNavigate();
     const token = useSelector((state) => state.token);
     const dark = palette.neutral.dark;
@@ -74,7 +76,7 @@ const UserWidget = ({ userId, picturePath}) => {
                     >
                         {firstName} {lastName}
                     </Typography>
-                    <Typography color={medium}>{friends.length} friends</Typography>
+                    <Typography color={medium}>{friends ? friends.length : 0} friends</Typography>
                 </Box>
                 <ManageAccountsOutlined></ManageAccountsOutlined>
             </FlexBetween>
@@ -101,6 +103,38 @@ const UserWidget = ({ userId, picturePath}) => {
                     <Typography color={medium}>Impressions of your post</Typography>
                     <Typography color={main} fontWeight='500'>{impressions}</Typography>
                 </FlexBetween>
+            </Box>
+
+            <Box p='1rem 0'>
+                <Typography fontSize='1rem' color={main} fontWeight='500' mb='1rem'>
+                    Social Profiles
+                </Typography>
+                <FlexBetween gap='1rem' mb='0.5rem'>
+                    <FlexBetween gap='1rem'>
+                        <img src={Twitter} alt='twitter'></img>
+                        <Box>
+                            <Typography color={main} fontWeight='500'>
+                                Twitter
+                            </Typography>
+                            <Typography color={medium}>Social Network</Typography>
+                        </Box>
+                    </FlexBetween>
+                    <EditOutlined sx={{color: main}}></EditOutlined>
+                </FlexBetween>
+
+                <FlexBetween gap='1rem' mb='0.5rem'>
+                    <FlexBetween gap='1rem'>
+                        <img src={LinkedIn} alt='linkedin'></img>
+                        <Box>
+                            <Typography color={main} fontWeight='500'>
+                                LinkedIn
+                            </Typography>
+                            <Typography color={medium}>Nework Platform</Typography>
+                        </Box>
+                    </FlexBetween>
+                    <EditOutlined sx={{color: main}}></EditOutlined>
+                </FlexBetween>
+
             </Box>
 
         </FlexBetween>
