@@ -22,7 +22,22 @@ const Home = () => {
         <Box flexBasis={isNonMobileScreens ? '26%' : undefined}>
           <UserWidget userId={_id} picturePath={picturePath}></UserWidget>
         </Box>
+        
+        <Box 
+          flexBasis={isNonMobileScreens ? '26%' : undefined}
+          mt={isNonMobileScreens ? undefined : '2rem'}
+        >
+
+        </Box>
+
+        {isNonMobileScreens && (
+          <Box>
+
+          </Box>
+        )}
       </Box>
+
+      
     </Box>
   )
 }
