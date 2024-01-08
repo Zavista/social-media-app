@@ -25,7 +25,7 @@ const Home = () => {
         </Box>
         
         <Box 
-          flexBasis={isNonMobileScreens ? '26%' : undefined}
+          flexBasis={isNonMobileScreens ? '46%' : undefined}
           mt={isNonMobileScreens ? undefined : '2rem'}
         >
           <MyPostWidget picturePath={picturePath}></MyPostWidget>
