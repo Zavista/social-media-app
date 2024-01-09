@@ -5,6 +5,7 @@ import UserWidget from "../widgets/UserWidget.jsx"
 import MyPostWidget from '../widgets/MyPostWidget.jsx'
 import PostsWidget from "../widgets/PostsWidget.jsx"
 import AdvertWidget from "../widgets/AdvertWidget.jsx"
+import FriendListWidget from "../widgets/FriendListWidget.jsx"
 
 const Home = () => {
 
@@ -37,6 +38,8 @@ const Home = () => {
         {isNonMobileScreens && (
           <Box flexBasis='26%'>
             <AdvertWidget></AdvertWidget>
+            <Box m='2rem 0'></Box>
+            <FriendListWidget userId={_id}></FriendListWidget>
           </Box>
         )}
       </Box>
