@@ -13,7 +13,7 @@ const FriendListWidget = ({userId}) => {
     const friends = useSelector((state) => state.user.friends);
 
     const getFriends = async () => {
-        const response = await fetch(`http://localhost:3002/users/${userId}/friends`,{
+        const response = await fetch(`${import.meta.env.VITE_SERVER}users/${userId}/friends`,{
             method:'GET',
             headers: { Authorization: `Bearer ${token}`}
         })
