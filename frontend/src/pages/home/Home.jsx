@@ -4,6 +4,7 @@ import Navbar from "../navbar/Navbar.jsx"
 import UserWidget from "../widgets/UserWidget.jsx"
 import MyPostWidget from '../widgets/MyPostWidget.jsx'
 import PostsWidget from "../widgets/PostsWidget.jsx"
+import AdvertWidget from "../widgets/AdvertWidget.jsx"
 
 const Home = () => {
 
@@ -34,8 +35,8 @@ const Home = () => {
         </Box>
 
         {isNonMobileScreens && (
-          <Box>
-
+          <Box flexBasis='26%'>
+            <AdvertWidget></AdvertWidget>
           </Box>
         )}
       </Box>
