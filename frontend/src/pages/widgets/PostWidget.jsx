@@ -46,9 +46,64 @@ const PostWidget = ({
     }
 
   return (
+    <WidgetWrapper m='2rem 0'>
+        <Friend
+            friendId={postUserId}
+            name={name}
+            subtitle={location}
+            userPicturePath={userPicturePath}
+        ></Friend>
+        <Typography color={main} sx={{mt: '1rem'}}>
+            {description}
+        </Typography>
+        {picturePath && (
+            <img 
+                width='100%'
+                height='auto'
+                alt='post'
+                style={{borderRadius: '0.75rem', marginTop:'0.75rem'}}
+                src={`http://localhost:3002/assets/${picturePath}`}
+            ></img>
 
+        )}
+        <FlexBetween mt='0.25rem'>
+            <FlexBetween gap='1rem'>
+                <FlexBetween gap='0.3rem'>
+                    <IconButton onClick={patchLike}>
+                        {isLiked ? (
+                          <FavouriteOutlined sx={{color:primary}}></FavouriteOutlined>) : (
+                            <FavouriteBorderOutlined></FavouriteBorderOutlined>
+                          )}
+                    </IconButton>
+                </FlexBetween>
 
-    <div>PostWidget</div>
+                <FlexBetween gap="0.3rem">
+                    <IconButton onClick={()=> setIsComments(!isComments)}>
+                        <ChatBubbleOutlineOutlined></ChatBubbleOutlineOutlined>
+                    </IconButton>
+                    <Typography>{comments.length}</Typography>
+                </FlexBetween>
+            </FlexBetween>
+
+            <IconButton>
+                <ShareOutlined></ShareOutlined>
+            </IconButton>
+        </FlexBetween>
+
+        {isComments && (
+            <Box mt='0.5rem'>
+                {comments.map((comment, i) => (
+                    <Box key={`${name}-${i}`}>
+                        <Divider></Divider>
+                        <Typography sx={{color: main, m:'0.5rem 0', pl: '1rem'}}>
+                            {comment}
+                        </Typography>
+                        <Divider></Diver>
+                    </Box>
+                ))}
+            </Box>
+        )}
+    </WidgetWrapper>
   )
 }
 
