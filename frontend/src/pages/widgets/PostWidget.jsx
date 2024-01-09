@@ -1,4 +1,4 @@
-import { ChatBubbleOutlineOutlined, FavouriteBorderOutlined, FavouriteOutlined, ShareOutlined} from  '@mui/icons-material'
+import { ChatBubbleOutlineOutlined, FavoriteBorderOutlined, FavoriteOutlined, ShareOutlined} from  '@mui/icons-material'
 import { Box, Divider, IconButton, Typography, useTheme } from '@mui/material'
 import FlexBetween from '../../components/FlexBetween.jsx'
 import Friend from '../../components/Friend.jsx'
@@ -71,8 +71,8 @@ const PostWidget = ({
                 <FlexBetween gap='0.3rem'>
                     <IconButton onClick={patchLike}>
                         {isLiked ? (
-                          <FavouriteOutlined sx={{color:primary}}></FavouriteOutlined>) : (
-                            <FavouriteBorderOutlined></FavouriteBorderOutlined>
+                          <FavoriteOutlined sx={{color:primary}}></FavoriteOutlined>) : (
+                            <FavoriteBorderOutlined></FavoriteBorderOutlined>
                           )}
                     </IconButton>
                 </FlexBetween>
@@ -98,7 +98,7 @@ const PostWidget = ({
                         <Typography sx={{color: main, m:'0.5rem 0', pl: '1rem'}}>
                             {comment}
                         </Typography>
-                        <Divider></Diver>
+                        <Divider></Divider>
                     </Box>
                 ))}
             </Box>
