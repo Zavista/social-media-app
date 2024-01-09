@@ -28,7 +28,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             method: "PATCH",
             headers: {
                 Authorization:  `Bearer ${token}`,
-                "Content-Type": 'aplication/json'
+                "Content-Type": 'application/json'
             }
         })
 
