@@ -2,11 +2,41 @@ import { ChatBubbleOutlineOutlined, FavouriteBorderOutlined, FavouriteOutlined, 
 import { Box, Divider, IconButton, Typography, useTheme } from '@mui/material'
 import FlexBetween from '../../components/FlexBetween.jsx'
 import Friend from '../../components/Friend.jsx'
+import WidgetWrapper from '../../components/WidgetWrapper.jsx'
+import { useState } from 'react'
+import {  useDispatch, useSelector }  from 'react-redux'
+import { setPost } from '../../state/state.js'
 
 
+const PostWidget = ({
+    postId,
+    postUserId,
+    name,
+    description,
+    location,
+    picturePath,
+    userPicturePath,
+    likes,
+    comments
+}) => {
 
-const PostWidget = () => {
+    const [isComments, setIsComments] = useState(false)
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.token);
+    const loggedInUserId = useSelector((state) => state.user._id);
+    const isLiked = Boolean(likes[loggedInUserId]);
+
+
+    const { palette } = useTheme();
+    const primaryLight = palette.primary.light;
+    const primaryDark = palette.primary.dark;
+    const main  = palette.neutral.main;
+    const medium = palette.neutral.medium;
+
+
   return (
+
+
     <div>PostWidget</div>
   )
 }
