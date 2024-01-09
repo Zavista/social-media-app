@@ -1,7 +1,0 @@
-[build]
-  publish = "dist" # Specify the directory where your built files are located
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
