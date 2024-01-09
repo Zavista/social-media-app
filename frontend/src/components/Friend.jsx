@@ -36,7 +36,47 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     }
 
   return (
-    <div>Friend</div>
+    <FlexBetween>
+        <FlexBetween gap='1rem'>
+            <UserImage image={userPicturePath} size="55px"></UserImage>
+            <Box
+                onClick={() => {
+                    navigate(`/profile/${friendId}`);
+                    navigate(0);
+                }}
+            >
+                <Typography
+                    color={main}
+                    variant='h5'
+                    fontWeight='500'
+                    sx={{
+                        '&:hover': {
+                            cursor: 'pointer',
+                            color: palette.primary.light
+                        }
+                    }}
+                >
+                    {name}
+                </Typography>
+                <Typography
+                    color={medium}
+                    fontSize='0.75rem'
+                >
+                    {subtitle}
+                </Typography>
+            </Box>
+        </FlexBetween>
+        <IconButton
+            onClick={() => patchFriend}
+            sx={{backgroundColor:  primaryLight, p: '0.6rem'}}
+        >
+            {isFriend ? (
+                <PersonRemoveOutlined sx={{color:primaryDark}}></PersonRemoveOutlined>
+            ) : (
+                <PersonAddOutlined sx={{color:primaryDark}}></PersonAddOutlined>
+            )}
+        </IconButton>
+    </FlexBetween>
   )
 }
 
