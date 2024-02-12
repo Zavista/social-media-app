@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          Fakebook
+          Socialize
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
